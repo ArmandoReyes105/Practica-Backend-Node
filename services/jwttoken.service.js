@@ -33,4 +33,16 @@ const TiempoRestanteToken = (req) => {
     }
 }
 
-module.exports = { GeneraToken, TiempoRestanteToken}
+const GetEmail = (req) => {
+    try{
+        const authHeader = req.header('Authorization');
+        const token = authHeader.split(' ')[1];
+        const decodedToken = jwt.verify(token, jwtSecret); 
+
+        return decodedToken["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"]; 
+    }catch(error){
+        return null; 
+    }
+}
+
+module.exports = { GeneraToken, TiempoRestanteToken, GetEmail}

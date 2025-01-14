@@ -27,7 +27,9 @@ app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(require("./middlewares/bitacora.middleware"))
 
 //Rutas
+app.use("/api/pedidos", require('./routes/pedidos.routes'))
 app.use("/api/categorias", require('./routes/categorias.routes'))
+app.use("/api/cart" , require('./routes/cart.routes'));
 app.use("/api/productos", require('./routes/productos.routes'))
 app.use("/api/usuarios", require('./routes/usuarios.routes'))
 app.use("/api/roles", require('./routes/roles.routes'))

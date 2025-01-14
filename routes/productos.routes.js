@@ -8,7 +8,7 @@ router.get('/:id', Authorize('Usuario,Administrador'), productos.get)
 
 router.post('/', Authorize('Administrador'), productos.productoValidator, productos.create)
 
-router.put('/:id', Authorize('Administrador'), productos.productoValidator, productos.update)
+router.put('/:id', Authorize('Administrador'), productos.productoValidator, productos.updateProduct)
 
 router.delete('/:id', Authorize('Administrador'), productos.delete)
 

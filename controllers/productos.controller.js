@@ -44,6 +44,7 @@ self.getAll = async function (req, res, next){
 //GET: api/productos/5
 self.get = async function (req, res, next){
     try{
+        console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         let id = req.params.id
         let data = await producto.findByPk(id, {
             attributes: [['id', 'productoId'], 'titulo', 'descripcion', 'precio', 'archivoid'],
@@ -67,6 +68,7 @@ self.get = async function (req, res, next){
 //POST: api/productos
 self.create = async function (req, res, next){
     try{
+        console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         const errors = validationResult(req)
         if (!errors.isEmpty()) throw new Error(JSON.stringify(errors));
 
@@ -85,12 +87,14 @@ self.create = async function (req, res, next){
 }
 
 //PUT: api/productos/5
-self.update = async function (req, res, next){
+self.updateProduct = async function (req, res, next){
     try{
+        console.log("Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         const errors = validationResult(req)
         if (!errors.isEmpty()) throw new Error(JSON.stringify(errors));
 
         let id = req.params.id
+        console.log(id);
         let body = req.body
         let data = await producto.update(body, { where: { id: id}})
         if (data[0] === 0){

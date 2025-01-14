@@ -12,9 +12,51 @@
     "http"
   ],
   "paths": {
+    "/api/pedidos/": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productoid": {
+                  "example": "any"
+                },
+                "cantidad": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/api/categorias/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -24,6 +66,11 @@
       "post": {
         "description": "",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -53,6 +100,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -71,6 +123,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
             "type": "string"
           }
         ],
@@ -91,6 +148,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -106,10 +168,152 @@
         }
       }
     },
+    "/api/cart/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/cart/item": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productoId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "productoId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/cart/{item}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/cart/producto/{producto}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "producto",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/api/productos/": {
       "get": {
         "description": "",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "s",
             "in": "query",
@@ -125,6 +329,11 @@
       "post": {
         "description": "",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -163,6 +372,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -182,6 +396,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -200,6 +419,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
             "type": "string"
           }
         ],
@@ -221,6 +445,11 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -261,11 +490,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -273,6 +510,13 @@
     "/api/usuarios/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -282,6 +526,11 @@
       "post": {
         "description": "",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
           {
             "name": "body",
             "in": "body",
@@ -320,6 +569,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -338,6 +592,11 @@
             "name": "email",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -369,6 +628,13 @@
     "/api/roles/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -409,6 +675,13 @@
     "/api/auth/tiempo": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -422,6 +695,13 @@
     "/api/archivos/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -430,6 +710,13 @@
       },
       "post": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -468,6 +755,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -490,6 +782,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -511,6 +808,11 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -526,6 +828,13 @@
     "/api/bitacora/": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
